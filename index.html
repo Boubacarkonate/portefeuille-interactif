@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portefeuille</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" defer></script>
+  <script src="js/data.js"      defer></script>
+  <script src="js/lineChart.js" defer></script>
+  <script src="js/donutChart.js"defer></script>
+  <script src="js/main.js"      defer></script>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <p class="eyebrow">Simulation d'un portefeuille</p>
+    <div class="total-row">
+      <div>
+        <div class="total-value" id="total-val">24 830 €</div>
+        <div class="perf-badge" id="perf-label"></div>
+      </div>
+      <div class="period-btns">
+        <button onclick=""  id="btn-30">1M</button>
+        <button onclick=""  id="btn-90">3M</button>
+        <button onclick="" id="btn-180" class="active">6M</button>
+        <button onclick="" id="btn-365">1A</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="card">
+    <p class="card-label">Évolution de la valeur</p>
+    <div id="line-chart"></div>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Allocation par actif</p>
+    <div id="donut-chart">
+      <div id="donut-svg"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </div>
+
+</div>
+
+<div id="tooltip">
+  <div class="tooltip-date" id="tt-date"></div>
+  <div class="tooltip-val"  id="tt-val"></div>
+</div>
+</body>
+</html>
