@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalEl = document.getElementById('total-val');
   if (totalEl) {
     totalEl.style.cursor = 'pointer';
-    totalEl.title = 'Clique-moi ✨';
+    totalEl.title = 'Clique-moi';
     totalEl.addEventListener('click', burstConfetti);
   }
 });
