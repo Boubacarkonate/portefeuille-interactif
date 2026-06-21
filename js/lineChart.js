@@ -1,12 +1,10 @@
-const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
-
 const LINE_CONFIG = {
   height:    220,
   margin:    { top: 8, right: 12, bottom: 30, left: 56 },
-  color:     '#1D9E75',
-  areaFill:  isDark ? 'rgba(29,158,117,0.3)' : 'rgba(29,158,117,0.12)',
-  gridColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
-  textColor: isDark ? '#9a9a94' : '#6b6b66',
+  color:     '#00e5ff',
+  areaFill:  'rgba(0,229,255,0.14)',
+  gridColor: 'rgba(255,255,255,0.05)',
+  textColor: '#565b66',
 };
 
 /**
@@ -69,13 +67,23 @@ function drawLineChart(days) {
   const area = d3.area().x(d => x(d.date)).y0(h).y1(d => y(d.value)).curve(d3.curveCatmullRom);
   const line = d3.line().x(d => x(d.date)).y(d => y(d.value)).curve(d3.curveCatmullRom);
 
-  g.append('path').datum(data).attr('fill', 'url(#area-grad)').attr('d', area);
-  g.append('path').datum(data).attr('fill', 'none').attr('stroke', color).attr('stroke-width', 2).attr('d', line);
+  g.append('path').datum(data).attr('fill', 'url(#area-grad)').attr('d', area).style('opacity', 0)
+    .transition().delay(300).duration(500).style('opacity', 1);
 
-  // Point de survol
+  const linePath = g.append('path')
+    .datum(data)
+    .attr('fill', 'none')
+    .attr('stroke', color)
+    .attr('stroke-width', 2)
+    .attr('d', line);
+
+  // Effet "dessin au pinceau" — la courbe se trace de gauche à droite
+  drawPathIn(linePath, 900);
+
+  // Point de survol (avec petite pulsation au repos une fois le tracé fini)
   const dot = g.append('circle').attr('r', 4)
     .attr('fill', color)
-    .attr('stroke', isDark ? '#1e1e1c' : '#fff')
+    .attr('stroke', '#0a0c10')
     .attr('stroke-width', 2)
     .style('opacity', 0)
     .style('pointer-events', 'none');
