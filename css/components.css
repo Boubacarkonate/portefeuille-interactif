@@ -1,1 +1,135 @@
-/*styles des composants*/
+/* ── Header ────────────────────────────────────────── */
+header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.total-value {
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.perf-badge {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* ── Boutons de période ─────────────────────────────── */
+.period-btns {
+  display: flex;
+  gap: 6px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.period-btns button {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 0.5px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.period-btns button.active {
+  background: var(--surface);
+  color: var(--text-primary);
+  border-color: rgba(0, 0, 0, 0.18);
+  font-weight: 500;
+}
+
+/* ── Cartes ─────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-label {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 1rem;
+}
+
+/* ── Donut ──────────────────────────────────────────── */
+#donut-chart {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ── Légende ────────────────────────────────────────── */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-width: 140px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-name { color: var(--text-secondary); flex: 1; }
+.legend-pct  { font-weight: 500; color: var(--text-primary); }
+
+/* ── Tooltip ────────────────────────────────────────── */
+#tooltip {
+  position: fixed;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.tooltip-date { color: var(--text-secondary); font-size: 11px; margin-bottom: 2px; }
+.tooltip-val  { color: var(--text-primary); font-weight: 500; font-size: 14px; }
+
+/* ── Line chart container ───────────────────────────── */
+#line-chart { width: 100%; }
