@@ -1,1 +1,46 @@
-/*variables et reset*/
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:             #f8f7f4;
+  --surface:        #ffffff;
+  --border:         rgba(0, 0, 0, 0.09);
+  --text-primary:   #1a1a18;
+  --text-secondary: #6b6b66;
+  --text-tertiary:  #a0a09a;
+  --green:          #1D9E75;
+  --green-light:    rgba(29, 158, 117, 0.12);
+  --red:            #E24B4A;
+  --blue:           #378ADD;
+  --purple:         #7F77DD;
+  --amber:          #EF9F27;
+  --gray:           #888780;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:             #121210;
+    --surface:        #1e1e1c;
+    --border:         rgba(255, 255, 255, 0.08);
+    --text-primary:   #e8e8e4;
+    --text-secondary: #9a9a94;
+    --text-tertiary:  #5a5a56;
+    --green-light:    rgba(29, 158, 117, 0.2);
+  }
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
