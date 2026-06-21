@@ -17,11 +17,14 @@ function hideTooltip() {
   document.getElementById('tooltip').style.opacity = '0';
 }
 
-//Changement de période
-let currentPeriod = 180;
-
+/**
+ * Met à jour la période sélectionnée :
+ * - active le bon bouton
+ * - recalcule la performance affichée
+ * - redessine la courbe
+ * @param {number} days
+ */
 function setPeriod(days) {
-  currentPeriod = days;
   [30, 90, 180, 365].forEach(d => {
     document.getElementById('btn-' + d).classList.toggle('active', d === days);
   });
@@ -42,11 +45,13 @@ function setPeriod(days) {
 
 //Initialisation 
 document.addEventListener('DOMContentLoaded', () => {
+  revealCards();
+  animateCounter(document.getElementById('total-val'), 0, PORTFOLIO_FINAL_VALUE);
   setPeriod(180);
   drawDonutChart();
 });
 
 window.addEventListener('resize', () => {
-  drawLineChart(currentPeriod);
+  drawLineChart(180);
   drawDonutChart();
 });

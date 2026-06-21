@@ -1,9 +1,9 @@
 const ASSETS = [
-  { name: 'Actions EU',    color: '#1D9E75', pct: 38 },
-  { name: 'Obligataires',  color: '#378ADD', pct: 25 },
-  { name: 'Tech US',       color: '#7F77DD', pct: 20 },
-  { name: 'Or & Matières', color: '#EF9F27', pct: 10 },
-  { name: 'Cash',          color: '#888780', pct: 7  },
+  { name: 'Actions EU',    color: '#00e5ff', pct: 38 },
+  { name: 'Obligataires',  color: '#7b5cff', pct: 25 },
+  { name: 'Tech US',       color: '#ff2e9a', pct: 20 },
+  { name: 'Or & Matières', color: '#ffb800', pct: 10 },
+  { name: 'Cash',          color: '#3a3f4d', pct: 7  },
 ];
 
 const PORTFOLIO_FINAL_VALUE = 24830;

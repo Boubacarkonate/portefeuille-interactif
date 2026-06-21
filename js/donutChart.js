@@ -26,7 +26,7 @@ function drawDonutChart() {
     .join('path')
     .attr('d', arc)
     .attr('fill', d => d.data.color)
-    .attr('stroke', isDark ? '#1e1e1c' : '#fff')
+    .attr('stroke', '#0a0c10')
     .attr('stroke-width', 2)
     .style('cursor', 'pointer')
     .on('mouseover', function(event, d) {

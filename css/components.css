@@ -1,15 +1,26 @@
 /*Header */
 header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .eyebrow {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-tertiary);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
 .total-row {
@@ -17,71 +28,91 @@ header {
   justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid var(--border);
 }
 
 .total-value {
-  font-size: 36px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 450;
+  font-size: 42px;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
 }
 
 .perf-badge {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 13px;
-  margin-top: 4px;
+  font-size: 12px;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
 }
 
 /* Boutons de période */
 .period-btns {
   display: flex;
-  gap: 6px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  gap: 4px;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
 }
 
 .period-btns button {
+  font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.06em;
-  padding: 5px 14px;
-  border-radius: 20px;
-  border: 0.5px solid var(--border);
+  letter-spacing: 0.04em;
+  padding: 6px 13px;
+  border-radius: 6px;
+  border: none;
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.18s ease;
+}
+
+.period-btns button:hover {
+  color: var(--text-secondary);
 }
 
 .period-btns button.active {
-  background: var(--surface);
-  color: var(--text-primary);
-  border-color: rgba(0, 0, 0, 0.18);
+  background: var(--accent-dim);
+  color: var(--accent);
   font-weight: 500;
 }
 
 /* Cartes */
 .card {
-  background: var(--surface);
+  background: linear-gradient(165deg, var(--surface-raised), var(--surface));
   border: 0.5px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 14px;
+  padding: 1.75rem;
   margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
 }
 
 .card-label {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 10px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-tertiary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 /* Donut */
 #donut-chart {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.25rem;
   flex-wrap: wrap;
 }
 
@@ -89,47 +120,60 @@ header {
 .legend {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   flex: 1;
-  min-width: 140px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  min-width: 150px;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  gap: 10px;
+  font-size: 12px;
 }
 
 .legend-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 2px;
   flex-shrink: 0;
 }
 
 .legend-name { color: var(--text-secondary); flex: 1; }
-.legend-pct  { font-weight: 500; color: var(--text-primary); }
+.legend-pct  {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
 
 /* Tooltip */
 #tooltip {
   position: fixed;
-  background: var(--surface);
-  border: 0.5px solid var(--border);
+  background: var(--surface-raised);
+  border: 0.5px solid var(--border-strong);
   border-radius: 8px;
-  padding: 8px 14px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
+  padding: 10px 14px;
+  font-size: 11px;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.12s;
   z-index: 100;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
-.tooltip-date { color: var(--text-secondary); font-size: 11px; margin-bottom: 2px; }
-.tooltip-val  { color: var(--text-primary); font-weight: 500; font-size: 14px; }
+.tooltip-date {
+  color: var(--text-tertiary);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  margin-bottom: 3px;
+}
+
+.tooltip-val  {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: 450;
+  font-size: 15px;
+}
 
 /* Line chart container */
 #line-chart { width: 100%; }
